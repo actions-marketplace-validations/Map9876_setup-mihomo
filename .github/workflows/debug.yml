@@ -38,8 +38,8 @@ jobs:
           sleep 10
           
           # 修改配置文件以确保所有流量都走 WireGuard
-          sed -i 's/AllowedIPs = 0.0.0.0\/0/AllowedIPs = 0.0.0.0\/1, 128.0.0.0\/1/g' wgcf-profile.conf
-          sed -i 's/AllowedIPs = ::\/0/AllowedIPs = ::\/1, 8000::\/1/g' wgcf-profile.conf
+          sed -i 's/AllowedIPs = 0.0.0.0\/0/AllowedIPs = 0.0.0.0\/1, 128.0.0.0\/1/g' wgcf-profile.conf &
+          sed -i 's/AllowedIPs = ::\/0/AllowedIPs = ::\/1, 8000::\/1/g' wgcf-profile.conf &
           
           # 将配置文件移动到 WireGuard 的配置目录
           sudo cp wgcf-profile.conf /etc/wireguard/wg0.conf &
